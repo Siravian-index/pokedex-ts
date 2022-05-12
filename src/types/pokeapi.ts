@@ -1,4 +1,4 @@
-export type result = { name: string; url: string }
+export type results = { name: string; url: string }
 type strOrNull = string | null
 
 // response shape from api
@@ -6,13 +6,13 @@ export interface firstResponse {
   count: number
   next: strOrNull
   previous: strOrNull
-  result: result[]
+  results: results[]
 }
 
 // single pokemon data to be display on detail
 type stats = { stat: number; name: string }
 type types = { name: string }
-type singlePokemonDetails = {
+export type singlePokemonDetails = {
   id: number
   name: string
   stats: stats[]

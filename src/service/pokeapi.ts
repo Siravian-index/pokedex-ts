@@ -1,14 +1,16 @@
-import { firstResponse, result } from './../types/pokeapi'
-// {id, name, type, description, stats, pokedexOrder, weight, height}
-// {id, name, type, image, }
+import { firstResponse, results, singlePokemonDetails } from './../types/pokeapi'
 
-// const POKE_API = 'https://pokeapi.co/api/v2/pokemon/'
-const POKE_API = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
+// const POKE_API = 'https://pokeapi.co/api/v2/pokemon?limit=151'
+const POKE_API = 'https://pokeapi.co/api/v2/pokemon?limit=10'
 
 export const getAllPokemon = async () => {
   const res = await fetch(POKE_API)
-  const { result }: firstResponse = await res.json()
-  const allData = await getSinglePokemonInfo(result)
+  const { results }: firstResponse = await res.json()
+  const pokemonArr = await getSinglePokemonInfo(results)
 }
 
-export const getSinglePokemonInfo = async (pokemonList: result[]) => {}
+export const getSinglePokemonInfo = async (pokemonList: results[]) => {
+  const fullPokemonInfo = [] as singlePokemonDetails[]
+}
+
+// const buildPokemonObj = (): singlePokemonDetails => {}
